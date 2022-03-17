@@ -59,7 +59,9 @@ class SatisBuilder
             return $pacakges->toArray();
         }, $packages);
 
-        $external = $this->getExternalRepos($input);
+
+
+        $external = $this->getExternalRepos($input . '/' . $this->external);
 
         $satis = array_merge($external, $files);
 
@@ -92,7 +94,7 @@ class SatisBuilder
         return $this;
     }
 
-    public function save($path)
+    public function save($path): void
     {
         $file = fopen($path, 'w');
 
@@ -104,17 +106,15 @@ class SatisBuilder
         fclose($file);
     }
 
-    protected function getExternalRepos(string $root): array
+    protected function getExternalRepos(string $file): array
     {
-        $file = "{$root}/external.json";
-
         if (! file_exists($file)) {
             return [];
         }
 
         $external = file_get_contents($file);
 
-        $repos = json_decode($external, true)['repositories'];
+        $repos = json_decode($external, true)['repositories'] ?? [];
 
         return $repos;
     }
