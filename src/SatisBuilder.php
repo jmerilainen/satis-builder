@@ -29,7 +29,7 @@ class SatisBuilder
 
     protected function generate($input)
     {
-        $files = (new Finder)
+        $files = (new Finder())
             ->in($input)
             ->files()
             ->name('*.zip')
@@ -37,7 +37,7 @@ class SatisBuilder
 
         $files = array_keys(iterator_to_array($files));
 
-        $packages = array_map(function($path) use ($input) {
+        $packages = array_map(function ($path) use ($input) {
             $basename = basename($path);
             $relativePath = str_replace($input, '', $path);
             $depth = substr_count($relativePath, '/');
@@ -55,7 +55,7 @@ class SatisBuilder
             ]);
         }, $files);
 
-        $files = array_map(function(Package $pacakges) {
+        $files = array_map(function (Package $pacakges) {
             return $pacakges->toArray();
         }, $packages);
 
@@ -147,7 +147,7 @@ class SatisBuilder
             "archive" => [
                 "directory" => 'dist',
                 "format" => "tar",
-                "skip-dev" => true
+                "skip-dev" => true,
             ],
             "require-all" => true,
         ];

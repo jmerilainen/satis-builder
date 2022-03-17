@@ -2,7 +2,6 @@
 
 namespace Jmerilainen\SatisBuilder\Console\Commands;
 
-use Frc\Satis\Builder\JsonBuilder;
 use Jmerilainen\SatisBuilder\SatisBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,7 +24,6 @@ class BuildCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $required = [
             'name',
             'homepage',

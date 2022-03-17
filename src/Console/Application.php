@@ -11,6 +11,6 @@ class Application extends BaseApplication
     {
         parent::__construct('satis.json builder', '1.0');
 
-        $this->add(new BuildCommand);
+        $this->add(new BuildCommand());
     }
 }

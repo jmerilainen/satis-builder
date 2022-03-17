@@ -1,11 +1,10 @@
 <?php
 
-use Jmerilainen\SatisBuilder\Package;
 use Jmerilainen\SatisBuilder\SatisBuilder;
 
 it('will generate correct satis.json from path', function () {
     $root = __DIR__ . '/fixtures/case1';
-    $satis = (new SatisBuilder)
+    $satis = (new SatisBuilder())
         ->from($root)
         ->name('vendor/satis')
         ->homepage('https://satis.vendor.fi');
@@ -44,7 +43,7 @@ it('will generate correct satis.json from path', function () {
         "archive" => [
             "directory" => 'dist',
             "format" => 'tar',
-            "skip-dev" => true
+            "skip-dev" => true,
         ],
         "require-all" => true,
     ];
