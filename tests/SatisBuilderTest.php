@@ -21,7 +21,7 @@ it('will generate correct satis.json from path', function () {
                 "version" => '1.1',
                 "type" => 'package',
                 "dist" => [
-                    "url" => $root .'/package/testvendor/test-package-1.1.zip',
+                    "url" => normalizePath($root .'/package/testvendor/test-package-1.1.zip'),
                     "type" => 'zip',
                 ],
             ],
@@ -33,7 +33,7 @@ it('will generate correct satis.json from path', function () {
                 "version" => '1.0.2',
                 "type" => 'package',
                 "dist" => [
-                    "url" => $root .'/package/testvendor/test-package.1.0.2.zip',
+                    "url" => normalizePath($root .'/package/testvendor/test-package.1.0.2.zip'),
                     "type" => 'zip',
                 ],
             ],

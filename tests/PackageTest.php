@@ -8,7 +8,7 @@ it('will output correct package array from parsed data', function () {
         'name' => 'package',
         'version' => '1.2',
         'type' => 'package',
-        'url' => '/path/to/test/package-1.2.zip',
+        'url' => normalizePath('/path/to/test/package-1.2.zip'),
     ]);
 
     $expect = [
@@ -18,7 +18,7 @@ it('will output correct package array from parsed data', function () {
             "version" => '1.2',
             "type" => 'package',
             "dist" => [
-                "url" => '/path/to/test/package-1.2.zip',
+                "url" => normalizePath('/path/to/test/package-1.2.zip'),
                 "type" => 'zip',
             ],
         ],
