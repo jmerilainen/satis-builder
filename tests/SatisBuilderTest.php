@@ -3,7 +3,7 @@
 use Jmerilainen\SatisBuilder\SatisBuilder;
 
 it('will generate correct satis.json from path', function () {
-    $root = __DIR__ . '/fixtures/case1';
+    $root = normalizePath(__DIR__ . '/fixtures/case1');
     $satis = (new SatisBuilder())
         ->from($root)
         ->name('vendor/satis')
