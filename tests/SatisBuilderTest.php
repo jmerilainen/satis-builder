@@ -11,6 +11,10 @@ it('will generate correct satis.json from path', function () {
 
     $pacakges = [
         [
+            "type" => "vcs",
+            "url" => "https://github.com/jmerilainen/test-package",
+        ],
+        [
             "type" => "package",
             "package" => [
                 "name" => 'testvendor/test-package',

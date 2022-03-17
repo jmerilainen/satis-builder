@@ -16,7 +16,7 @@ class SatisBuilder
 
     protected $folder;
 
-    protected $external;
+    protected $external = 'external.json';
 
     protected $satis = [];
 
