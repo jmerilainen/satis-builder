@@ -40,7 +40,7 @@ class SatisBuilder
         $packages = array_map(function ($path) use ($input) {
             $basename = basename($path);
             $relativePath = str_replace($input, '', $path);
-            $depth = substr_count($relativePath, '/');
+            $depth = substr_count($relativePath, DIRECTORY_SEPARATOR);
 
             if ($depth != 3) {
                 throw new \Exception("File's $relativePath strucutre seems to be off.");
@@ -61,7 +61,7 @@ class SatisBuilder
 
 
 
-        $external = $this->getExternalRepos($input . '/' . $this->external);
+        $external = $this->getExternalRepos($input . DIRECTORY_SEPARATOR . $this->external);
 
         $satis = array_merge($external, $files);
 
@@ -133,9 +133,13 @@ class SatisBuilder
 
     protected function parseTypeFromFile($file)
     {
-        preg_match('/\/(.[^\/]+)\//', $file, $matches);
+        $parts = array_values(
+            array_filter(
+                explode(DIRECTORY_SEPARATOR, $file)
+            )
+        );
 
-        return $matches[1] ?? 'package';
+        return $parts[0] ?? 'package';
     }
 
     protected function generateSatisJson(array $pacakges): array
