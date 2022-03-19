@@ -8,6 +8,8 @@ The tool will generate a `satis.json` file for Satis by scanning archives based 
 
 Satis is a composer's static repository generator. Read more about Satis and satis.json from the composer's documentation: [https://getcomposer.org/doc/articles/handling-private-packages.md](https://getcomposer.org/doc/articles/handling-private-packages.md)
 
+Example repository using the tool: [satis.jmerilainen.fi](https://github.com/jmerilainen/satis.jmerilainen.fi).
+
 ## Installation
 
 > Note: The package has not yet been published to packagist
@@ -82,6 +84,7 @@ Example `composer.json` file:
 ```
 
 Running the `composer build` will then generate the satis.json and the repository with compiled assets and archives.
+
 
 See also: [composer/satis](https://github.com/composer/satis)
 
