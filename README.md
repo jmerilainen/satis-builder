@@ -4,7 +4,7 @@
 [![Tests](https://github.com/jmerilainen/satis-builder/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/jmerilainen/satis-builder/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/jmerilainen/satis-builder.svg?style=flat-square)](https://packagist.org/packages/jmerilainen/satis-builder)
 
-The tool will generate a `satis.json` file for Satis by scannnig archives based on the folder structrue.
+The tool will generate a `satis.json` file for Satis by scanning archives based on the folder structure.
 
 Satis is a composer's static repository generator. Read more about Satis and satis.json from the composer's documentation: [https://getcomposer.org/doc/articles/handling-private-packages.md](https://getcomposer.org/doc/articles/handling-private-packages.md)
 ## Installation
@@ -32,7 +32,7 @@ Options:
 
 ### Folder structure
 
-All naiming should follow the composer.json's schema:
+All naming should follow the composer.json's schema:
 [The composer.json schema](https://getcomposer.org/doc/04-schema.md#name).
 
 ```sh
@@ -42,7 +42,7 @@ All naiming should follow the composer.json's schema:
     │   ├── <vendor>/   # Second level: vendor namespace
     │   │   ├── <package-name>-<version>.zip #: Third level package archive
 ```
-### Usage with `composer/satis`
+### Usage with Satis repository
 
 In the Satis repository project use the `satis-builder build` command to generate satis.json for Satis to consume.
 
@@ -72,6 +72,8 @@ Example `composer.json` file:
 
 Running the `composer build` will then generate the satis.json and the repository with compiled assets and archives.
 
+See also: [composer/satis](https://github.com/composer/satis)
+
 ## Testing
 
 ```bash
@@ -82,6 +84,12 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
+## Roadmap
+
+- [ ] Get the name and homepage defaults from the repository project's composer.json
+- [ ] Validate structure and package names based on composer.json schema
+- [ ] Add more options and modification possibilities based on satis.json schema
+- [ ] Publish to packagist
 ## Contributing
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
