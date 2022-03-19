@@ -7,6 +7,7 @@
 The tool will generate a `satis.json` file for Satis by scanning archives based on the folder structure.
 
 Satis is a composer's static repository generator. Read more about Satis and satis.json from the composer's documentation: [https://getcomposer.org/doc/articles/handling-private-packages.md](https://getcomposer.org/doc/articles/handling-private-packages.md)
+
 ## Installation
 
 > Note: The package has not yet been published to packagist
@@ -32,16 +33,26 @@ Options:
 
 ### Folder structure
 
-All naming should follow the composer.json's schema:
-[The composer.json schema](https://getcomposer.org/doc/04-schema.md#name).
+The tool will be generate the json based on the following folder structure:
+
 
 ```sh
 ./                      # Root
 └── packages/           # All included packages, --from option
     ├── <type>          # First level: package type
     │   ├── <vendor>/   # Second level: vendor namespace
-    │   │   ├── <package-name>-<version>.zip #: Third level package archive
+    │   │   ├── <package-name>-<version>.zip #: Third level: package archive
+    │   │   └── ...
+    │   └── ...
+    ├── ...
+    └── external.json # json file with additional repositories
 ```
+
+All naming should follow the composer.json's schema:
+[The composer.json schema](https://getcomposer.org/doc/04-schema.md#name).
+
+See `tests/fixtures/case1` for working example.
+
 ### Usage with Satis repository
 
 In the Satis repository project use the `satis-builder build` command to generate satis.json for Satis to consume.
